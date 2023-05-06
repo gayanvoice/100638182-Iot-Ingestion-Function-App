@@ -14,7 +14,7 @@ namespace IotInjectionFunctionApp
 {
     public static class BatteryFunction
     {
-       static string deviceConnectionString = Environment.GetEnvironmentVariable("IOT_DEVICE_CONNECTION_STRING");
+       static string deviceConnectionString = Environment.GetEnvironmentVariable("IOT_BATTERY_DEVICE_CONNECTION_STRING");
         [FunctionName("BatteryIotIngestion")]
         public static async Task<IActionResult> RunAsync(
            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
