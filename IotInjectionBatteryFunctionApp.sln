@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IotInjectionBatteryFunctionApp", "IotInjectionFunctionApp\IotInjectionBatteryFunctionApp.csproj", "{3BA04DEE-54F4-4ACF-8197-791E8198055B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BA04DEE-54F4-4ACF-8197-791E8198055B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA04DEE-54F4-4ACF-8197-791E8198055B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA04DEE-54F4-4ACF-8197-791E8198055B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA04DEE-54F4-4ACF-8197-791E8198055B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF6A7955-A4CA-4DAA-B54B-AEC2FB63D390}
+	EndGlobalSection
+EndGlobal
