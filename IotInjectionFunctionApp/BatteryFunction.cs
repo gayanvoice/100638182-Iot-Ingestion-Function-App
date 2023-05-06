@@ -15,8 +15,6 @@ namespace IotInjectionFunctionApp
     public static class BatteryFunction
     {
        static string deviceConnectionString = Environment.GetEnvironmentVariable("IOT_DEVICE_CONNECTION_STRING");
-
-        //http://localhost:7137/api/Info?Temperature=36.0&Voltage=4430&IsCharging=true&Power=USB
         [FunctionName("BatteryIotIngestion")]
         public static async Task<IActionResult> RunAsync(
            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
@@ -71,7 +69,6 @@ namespace IotInjectionFunctionApp
             {
                 return new BadRequestObjectResult("Please provide an Power value.");
             }
-
             await SendDeviceToCloudMessageAsync(temperature, voltage, isCharging, power);
             return new OkObjectResult($"Temperature: {temperature} Voltage: {voltage}  IsCharging: {isCharging} Power: {power}");
         }
@@ -80,12 +77,10 @@ namespace IotInjectionFunctionApp
         {
             var deviceClient = DeviceClient.CreateFromConnectionString(deviceConnectionString);
             BatteryTelemetryDataModel batterytelemetryDataModel = new BatteryTelemetryDataModel();
-            batterytelemetryDataModel.Temperature = temperature;
-            batterytelemetryDataModel.Voltage = voltage;
-            batterytelemetryDataModel.IsCharging = isCharging;
-            batterytelemetryDataModel.Power = power;
-            var messageString = JsonSerializer.Serialize(batterytelemetryDataModel);
-            var message = new Message(Encoding.UTF8.GetBytes(messageString))
+            batterytelemetryDataModel = BatteryTelemetryDataModel
+                .GetBatteryTelemetryDataModel(temperature, voltage, isCharging, power);
+            string messageString = JsonSerializer.Serialize(batterytelemetryDataModel);
+            Message message = new Message(Encoding.UTF8.GetBytes(messageString))
             {
                 ContentType = "application/json",
                 ContentEncoding = "utf-8"
@@ -93,6 +88,5 @@ namespace IotInjectionFunctionApp
             await deviceClient.SendEventAsync(message);
             Console.WriteLine($"{DateTime.Now} > Sending message: {messageString}");
         }
-
     }
 }
