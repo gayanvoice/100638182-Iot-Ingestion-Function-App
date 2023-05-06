@@ -12,12 +12,12 @@ using IotInjectionFunctionApp.Model;
 
 namespace IotInjectionFunctionApp
 {
-    public static class BatteryFunction
+    public static class CameraFunction
     {
        static string deviceConnectionString = Environment.GetEnvironmentVariable("IOT_DEVICE_CONNECTION_STRING");
 
         //http://localhost:7137/api/Info?Temperature=36.0&Voltage=4430&IsCharging=true&Power=USB
-        [FunctionName("BatteryIotIngestion")]
+        [FunctionName("CameraIotIngestion")]
         public static async Task<IActionResult> RunAsync(
            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
            ILogger log)

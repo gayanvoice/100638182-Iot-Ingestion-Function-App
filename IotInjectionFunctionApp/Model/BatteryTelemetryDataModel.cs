@@ -1,4 +1,4 @@
-﻿namespace IotInjectionBatteryFunctionApp.Model
+﻿namespace IotInjectionFunctionApp.Model
 {
     internal class BatteryTelemetryDataModel
     {
